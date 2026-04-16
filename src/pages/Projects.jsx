@@ -6,122 +6,98 @@ import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import { FadeUp } from '../components/Motion'
 
 export default function Projects() {
-  const [openCard, setOpenCard] = React.useState(null) // stores the title (or index) of the opened image card
-
-  const toggleCard = (key) => {
-    setOpenCard((prev) => (prev === key ? null : key))
-  }
-
   return (
-    <Container maxWidth="lg" sx={{ pt: 7 }}>
+    <Container maxWidth="lg" sx={{ pt: 7, pb: 8 }}>
       <SectionHeader
         eyebrow="Projects"
-        title="Stuff I’ve built (and shipped)."
-        subtitle="Each project has a clear problem, a tech stack, and the part I owned."
+        title="Things I've built."
+        subtitle="From production web apps to GPU-accelerated ML systems."
       />
 
       <Grid container spacing={2.5}>
-        {projects.map((p, idx) => {
-          const key = p.title // unique enough here
-          const showImage = openCard === key
+        {projects.map((p, idx) => (
+          <Grid item xs={12} md={6} key={p.title} sx={{ display: 'flex' }}>
+            <FadeUp delay={0.05 * idx}>
+              <Paper
+                sx={{
+                  p: 3,
+                  height: '100%',
+                  width: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  '&:hover': { borderColor: 'rgba(255,255,255,0.15)' }
+                }}
+              >
+                <Typography sx={{ fontWeight: 700, fontSize: '1.05rem' }}>{p.title}</Typography>
+                <Typography sx={{ mt: 0.5, color: 'text.secondary', fontSize: '0.8rem' }}>{p.dates}</Typography>
 
-          return (
-            <Grid item xs={12} md={6} key={key} sx={{ display: 'flex' }}>
-              <FadeUp delay={0.03 * idx}>
-                <Paper
-                  onClick={() => toggleCard(key)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && toggleCard(key)}
-                  sx={{
-                    p: 2.6,
-                    height: '100%',
-                    width: '100%',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    cursor: 'pointer',
-                    userSelect: 'none',
-                  }}
-                >
-                  {showImage ? (
-                    // IMAGE STATE (replaces the whole card content)
-                    <Box
-                      sx={{
-                        flex: 1,
-                        minHeight: 260,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      <Box
-                        component="img"
-                        src="/favicon.svg"
-                        alt="Project preview"
+                <Typography sx={{ mt: 1.5, color: 'text.secondary', fontSize: '0.9rem' }}>
+                  {p.summary}
+                </Typography>
+
+                <Stack direction="row" sx={{ mt: 2, flexWrap: 'wrap', gap: 0.75 }}>
+                  {p.stack.map((s) => (
+                    <Chip key={s} label={s} variant="outlined" size="small" />
+                  ))}
+                </Stack>
+
+                <Box component="ul" sx={{ mt: 2, mb: 0, pl: 2, '& li': { mb: 0.5 } }}>
+                  {p.bullets.map((b, i) => (
+                    <li key={i}>
+                      <Typography sx={{ color: 'text.secondary', fontSize: '0.85rem' }}>{b}</Typography>
+                    </li>
+                  ))}
+                </Box>
+
+                {p.videoUrl && (
+                  <Box sx={{ mt: 2.5, borderRadius: 2, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)', position: 'relative', paddingTop: '56.25%' }}>
+                    <iframe
+                      title={p.title}
+                      src={p.videoUrl}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+                    />
+                  </Box>
+                )}
+
+                {p.siteUrl && (
+                  <Box sx={{ mt: 2.5, borderRadius: 2, overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)' }}>
+                    <iframe
+                      title={p.title}
+                      src={p.siteUrl}
+                      style={{ width: '100%', height: 300, border: 0 }}
+                    />
+                  </Box>
+                )}
+
+                {p.links.length > 0 && (
+                  <Box sx={{ mt: 'auto', pt: 2.5, display: 'flex', gap: 1, flexWrap: 'wrap' }}>
+                    {p.links.map((l) => (
+                      <Button
+                        key={l.href}
+                        component={Link}
+                        href={l.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        variant="outlined"
+                        size="small"
+                        endIcon={<OpenInNewIcon sx={{ fontSize: 14 }} />}
                         sx={{
-                          width: '100%',
-                          height: '100%',
-                          maxHeight: 360,
-                          objectFit: 'contain',
+                          borderColor: 'rgba(255,255,255,0.12)',
+                          color: 'text.primary',
+                          '&:hover': { borderColor: 'rgba(255,255,255,0.25)' }
                         }}
-                      />
-                    </Box>
-                  ) : (
-                    // NORMAL STATE (project description)
-                    <>
-                      <Typography sx={{ fontWeight: 950, fontSize: 18 }}>{p.title}</Typography>
-                      <Typography sx={{ mt: 0.7, opacity: 0.75, fontSize: 14 }}>{p.dates}</Typography>
-
-                      <Typography sx={{ mt: 1.4, opacity: 0.86 }}>
-                        {p.summary}
-                      </Typography>
-
-                      <Stack direction="row" spacing={1} sx={{ mt: 1.6, flexWrap: 'wrap' }}>
-                        {p.stack.map((s) => (
-                          <Chip key={s} label={s} variant="outlined" sx={{ mb: 1 }} />
-                        ))}
-                      </Stack>
-
-                      <Box component="ul" sx={{ mt: 1.4, mb: 0, pl: 2.2, opacity: 0.9 }}>
-                        {p.bullets.map((b, i) => (
-                          <li key={i}><Typography sx={{ opacity: 0.86 }}>{b}</Typography></li>
-                        ))}
-                      </Box>
-
-                      <Box
-                        sx={{ mt: 'auto', pt: 2, display: 'flex', gap: 1, flexWrap: 'wrap' }}
-                        onClick={(e) => e.stopPropagation()} // <-- prevents the card click toggle when clicking links/buttons
                       >
-                        {p.links.map((l) => (
-                          <Button
-                            key={l.href}
-                            component={Link}
-                            href={l.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            variant="outlined"
-                            endIcon={<OpenInNewIcon />}
-                            sx={{ textTransform: 'none', fontWeight: 800 }}
-                          >
-                            {l.label}
-                          </Button>
-                        ))}
-
-                        <Button
-                          variant="outlined"
-                          sx={{ textTransform: 'none', fontWeight: 800 }}
-                          onClick={() => toggleCard(key)}
-                        >
-                          See Demo
-                        </Button>
-                      </Box>
-                    </>
-                  )}
-                </Paper>
-              </FadeUp>
-            </Grid>
-          )
-        })}
+                        {l.label}
+                      </Button>
+                    ))}
+                  </Box>
+                )}
+              </Paper>
+            </FadeUp>
+          </Grid>
+        ))}
       </Grid>
     </Container>
   )

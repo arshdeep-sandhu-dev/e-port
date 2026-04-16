@@ -1,121 +1,93 @@
 import React from 'react'
-import { Box, Button, Chip, Container, Grid, Link, Paper, Stack, Typography } from '@mui/material'
+import { Box, Button, Chip, Container, Grid, IconButton, Link, Paper, Stack, Typography } from '@mui/material'
 import { profile, highlights } from '../data/profile'
 import { FadeUp } from '../components/Motion'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
-import OpenInNewIcon from '@mui/icons-material/OpenInNew'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import LinkedInIcon from '@mui/icons-material/LinkedIn'
+import EmailIcon from '@mui/icons-material/Email'
 import { NavLink } from 'react-router-dom'
 
 export default function Home() {
   return (
-    <Container maxWidth="lg" sx={{ pt: 7 }}>
-      <Grid container spacing={3} alignItems="stretch">
-        <Grid item xs={12} md={7}>
-          <FadeUp>
-            <Typography variant="h1" sx={{ lineHeight: 1.05 }}>
-              {profile.name}
-            </Typography>
-            <Typography sx={{ mt: 2, fontSize: 18, opacity: 0.86 }}>
-              {profile.tagline}
-            </Typography>
-            <Typography sx={{ mt: 2, maxWidth: 640, opacity: 0.86 }}>
-              {profile.intro}
-            </Typography>
+    <Container maxWidth="lg" sx={{ pt: { xs: 8, md: 14 }, pb: 8 }}>
+      <FadeUp>
+        <Chip
+          label="Software Engineer at USAA"
+          size="small"
+          sx={{
+            mb: 3,
+            backgroundColor: 'rgba(59,130,246,0.1)',
+            color: 'primary.main',
+            border: '1px solid rgba(59,130,246,0.2)',
+            fontWeight: 600,
+            fontSize: '0.8rem'
+          }}
+        />
 
-            <Stack direction="row" spacing={1} sx={{ mt: 3, flexWrap: 'wrap' }}>
-              <Chip label="Spring Boot" variant="outlined" />
-              <Chip label="React" variant="outlined" />
-              <Chip label="AWS" variant="outlined" />
-              <Chip label="Kubernetes" variant="outlined" />
-              <Chip label="RAG / Vector Search" variant="outlined" />
-            </Stack>
+        <Typography variant="h1" sx={{ maxWidth: 700 }}>
+          Building scalable systems{' '}
+          <Box component="span" sx={{ color: 'text.secondary' }}>
+            that serve millions.
+          </Box>
+        </Typography>
 
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5} sx={{ mt: 4 }}>
-              <Button
-                component={NavLink}
-                to="/projects"
-                variant="contained"
-                endIcon={<ArrowForwardIcon />}
-                sx={{ textTransform: 'none', fontWeight: 800 }}
-              >
-                See Projects
-              </Button>
-              <Button
-                component={NavLink}
-                to="/resume"
-                variant="outlined"
-                sx={{ textTransform: 'none', fontWeight: 800 }}
-              >
-                Resume
-              </Button>
-              <Button
-                component={Link}
-                href={profile.github}
-                target="_blank"
-                rel="noreferrer"
-                variant="text"
-                endIcon={<OpenInNewIcon />}
-                sx={{ textTransform: 'none', fontWeight: 800 }}
-              >
-                GitHub
-              </Button>
-            </Stack>
-          </FadeUp>
+        <Typography sx={{ mt: 3, maxWidth: 560, color: 'text.secondary', fontSize: '1.1rem', lineHeight: 1.7 }}>
+          {profile.intro}
+        </Typography>
 
-          <Grid container spacing={2} sx={{ mt: 3 }}>
-            {highlights.map((h, idx) => (
-              <Grid item xs={12} sm={4} key={h.title}>
-                <FadeUp delay={0.05 * idx}>
-                  <Paper sx={{ p: 2.2, height: '100%' }}>
-                    <Typography sx={{ fontWeight: 900 }}>{h.title}</Typography>
-                    <Typography sx={{ mt: 1, opacity: 0.82, fontSize: 14 }}>
-                      {h.body}
-                    </Typography>
-                  </Paper>
-                </FadeUp>
-              </Grid>
-            ))}
+        <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mt: 4, flexWrap: 'wrap' }}>
+          <Button
+            component={NavLink}
+            to="/projects"
+            variant="contained"
+            endIcon={<ArrowForwardIcon />}
+            sx={{ px: 3, py: 1 }}
+          >
+            View Projects
+          </Button>
+          <Button
+            component={NavLink}
+            to="/resume"
+            variant="outlined"
+            sx={{
+              px: 3,
+              py: 1,
+              borderColor: 'rgba(255,255,255,0.15)',
+              color: 'text.primary',
+              '&:hover': { borderColor: 'rgba(255,255,255,0.3)' }
+            }}
+          >
+            Resume
+          </Button>
+          <Box sx={{ display: 'flex', gap: 0.5, ml: 1 }}>
+            <IconButton component={Link} href={profile.linkedin} target="_blank" rel="noreferrer" size="small" sx={{ color: 'text.secondary', '&:hover': { color: 'text.primary' } }}>
+              <LinkedInIcon fontSize="small" />
+            </IconButton>
+            <IconButton component={Link} href={profile.github} target="_blank" rel="noreferrer" size="small" sx={{ color: 'text.secondary', '&:hover': { color: 'text.primary' } }}>
+              <GitHubIcon fontSize="small" />
+            </IconButton>
+            <IconButton component={Link} href={`mailto:${profile.email}`} size="small" sx={{ color: 'text.secondary', '&:hover': { color: 'text.primary' } }}>
+              <EmailIcon fontSize="small" />
+            </IconButton>
+          </Box>
+        </Stack>
+      </FadeUp>
+
+      <Grid container spacing={2.5} sx={{ mt: 8 }}>
+        {highlights.map((h, idx) => (
+          <Grid item xs={12} sm={4} key={h.title}>
+            <FadeUp delay={0.08 * idx}>
+              <Paper sx={{ p: 3, height: '100%', '&:hover': { borderColor: 'rgba(255,255,255,0.15)' } }}>
+                <Typography sx={{ fontWeight: 700, fontSize: '0.95rem' }}>{h.title}</Typography>
+                <Typography sx={{ mt: 1.5, color: 'text.secondary', fontSize: '0.875rem' }}>
+                  {h.body}
+                </Typography>
+              </Paper>
+            </FadeUp>
           </Grid>
-        </Grid>
-
-        <Grid item xs={12} md={5}>
-          <FadeUp delay={0.1}>
-            <Paper sx={{ p: 2.6, height: '100%' }}>
-              <Typography sx={{ fontWeight: 900, fontSize: 16 }}>Quick Links</Typography>
-              <Stack sx={{ mt: 2 }} spacing={1.2}>
-                <QuickLink label="LinkedIn" href={profile.linkedin} />
-                <QuickLink label="Email" href={`mailto:${profile.email}`} />
-                <QuickLink label="Phone" href={`tel:${profile.phone}`} />
-              </Stack>
-
-              <Box sx={{ mt: 3.5 }}>
-                <Typography sx={{ fontWeight: 900, fontSize: 16 }}>What I’m focused on</Typography>
-                <Typography sx={{ mt: 1.2, opacity: 0.82 }}>
-                  Building systems that are fast, reliable, and easy for teams to ship — from CI dashboards to ML retrieval pipelines.
-                </Typography>
-              </Box>
-
-              <Box sx={{ mt: 3.5 }}>
-                <Typography sx={{ fontWeight: 900, fontSize: 16 }}>Best way to use this site</Typography>
-                <Typography sx={{ mt: 1.2, opacity: 0.82 }}>
-                  Start at <Link component={NavLink} to="/projects">Projects</Link> and click into anything that matches the role.
-                </Typography>
-              </Box>
-            </Paper>
-          </FadeUp>
-        </Grid>
+        ))}
       </Grid>
     </Container>
-  )
-}
-
-function QuickLink({ label, href }) {
-  return (
-    <Paper sx={{ p: 1.4, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-      <Typography sx={{ fontWeight: 800 }}>{label}</Typography>
-      <Link href={href} target={href.startsWith('http') ? "_blank" : undefined} rel="noreferrer" sx={{ opacity: 0.9 }}>
-        {href.replace('mailto:', '').replace('tel:', '')}
-      </Link>
-    </Paper>
   )
 }

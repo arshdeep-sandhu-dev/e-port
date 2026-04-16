@@ -5,28 +5,32 @@ import { FadeUp } from './Motion'
 export default function SectionHeader({ eyebrow, title, subtitle }) {
   return (
     <FadeUp>
-      <Box sx={{ mb: 3 }}>
+      <Box sx={{ mb: 5 }}>
         {eyebrow && (
           <Typography
             sx={{
-              display: 'inline-flex',
-              px: 1.2,
+              display: 'inline-block',
+              px: 1.5,
               py: 0.4,
-              borderRadius: 999,
-              border: '1px solid rgba(255,255,255,0.14)',
-              background: 'rgba(255,255,255,0.05)',
-              fontWeight: 800,
-              fontSize: 12,
-              letterSpacing: 0.6,
-              textTransform: 'uppercase',
-              opacity: 0.9
+              borderRadius: 1,
+              border: '1px solid rgba(59,130,246,0.2)',
+              background: 'rgba(59,130,246,0.08)',
+              color: 'primary.main',
+              fontWeight: 600,
+              fontSize: '0.75rem',
+              letterSpacing: '0.05em',
+              textTransform: 'uppercase'
             }}
           >
             {eyebrow}
           </Typography>
         )}
-        <Typography variant="h2" sx={{ mt: 1 }}>{title}</Typography>
-        {subtitle && <Typography sx={{ mt: 1, opacity: 0.82, maxWidth: 760 }}>{subtitle}</Typography>}
+        <Typography variant="h2" sx={{ mt: 1.5 }}>{title}</Typography>
+        {subtitle && (
+          <Typography sx={{ mt: 1, color: 'text.secondary', maxWidth: 600 }}>
+            {subtitle}
+          </Typography>
+        )}
       </Box>
     </FadeUp>
   )

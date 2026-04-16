@@ -1,121 +1,120 @@
 export const profile = {
   name: "Arshdeep Sandhu",
   location: "San Antonio, TX",
-  tagline: "Software Engineer • ML Systems • Cloud & DevOps",
+  tagline: "Software Engineer — Full-Stack Systems & Cloud Infrastructure",
   email: "arsh.sandhu.dev@gmail.com",
   phone: "210-636-8014",
   linkedin: "https://linkedin.com/in/arsh-sandhu-dev",
   github: "https://github.com/arshdeep-sandhu-dev",
   intro:
-    "I build production-grade full-stack systems, ML pipelines, and developer tooling that improves reliability and speed for real teams."
+    "I build and maintain scalable enterprise systems, full-stack applications, and cloud infrastructure that serve millions of users.",
+  education: {
+    school: "University of Texas at San Antonio",
+    degree: "Bachelor of Science in Computer Science",
+    concentration: "Software Engineering",
+    gpa: "3.87",
+    dates: "Aug 2022 – Dec 2025"
+  }
 }
 
 export const highlights = [
-  { title: "Full-stack + DevOps", body: "Spring Boot + React, CI/CD, Kubernetes, AWS deployments." },
-  { title: "ML Systems", body: "RAG pipelines, embeddings, vector search (FAISS + pgvector), YOLO-style CV work." },
-  { title: "Ship mindset", body: "Clean APIs, tests, monitoring, and performance wins — not just demos." }
+  { title: "Enterprise Systems", body: "Java + Spring Boot backends serving 13M+ members with high-throughput transaction processing." },
+  { title: "Full-Stack & Cloud", body: "React frontends, AWS infrastructure, Docker, Kubernetes, and CI/CD pipelines." },
+  { title: "Ship & Scale", body: "Database migrations, batch processing, RESTful APIs — production systems that save real money." }
 ]
 
 export const skills = {
-  Languages: ["Java", "Python", "C", "SQL", "JavaScript", "HTML/CSS"],
-  "Frameworks & Libraries": ["Spring Boot", "React", "Node.js", "Flask", "JUnit", "Mockito", "Material-UI", "YOLO"],
-  "Cloud & DevOps": ["AWS", "Lambda", "RDS", "EC2", "Git", "GitHub", "GitLab", "GitLab CI/CD", "Kubernetes"],
-  Tools: ["VS Code", "Visual Studio", "IntelliJ", "Eclipse", "Postman"]
+  Languages: ["Java", "Python", "C", "JavaScript", "SQL", "HTML/CSS"],
+  "Frameworks & Libraries": ["Spring Boot", "Spring Batch", "React", "Node.js", "Flask", "JUnit", "Mockito", "Material-UI", "PyTorch"],
+  "Cloud & DevOps": ["AWS (Lambda, RDS, EC2, CloudFront, API Gateway)", "Docker", "Kubernetes", "Git", "GitLab CI/CD"],
+  "Tools & Practices": ["RESTful APIs", "Agile/Scrum", "Oracle DB", "DB2", "MySQL", "Postman", "IntelliJ", "VS Code"]
 }
 
 export const experience = [
   {
-    role: "Software Engineering Intern",
+    role: "Software Engineer",
     company: "USAA",
-    dates: "May 2025 - Aug 2025",
+    dates: "Jan 2026 – Present",
     bullets: [
-      "Engineered a full-stack dashboard (Spring Boot, React, GitLab API) to monitor CI/CD test results and downstream health across 20+ projects.",
-      "Automated real-time pipeline tracking, cutting manual analysis time and boosting debugging efficiency for a 12-developer team.",
-      "Resolved deployment failures across GitLab CI/CD and Kubernetes to stabilize release workflows.",
-      "Integrated secure backend service accounts, added unit tests (JUnit, Mockito) with 90%+ coverage, and validated APIs with Postman."
+      "Develop and maintain scalable enterprise financial systems serving 13M+ members, designing backend services with Java and Spring Boot for high-throughput transaction processing.",
+      "Build batch processing systems using Spring Batch to aggregate and summarize enterprise-wide loss data, integrating across distributed systems for General Ledger reporting.",
+      "Lead database migration from legacy DB2 to Oracle, optimizing RESTful APIs and batch processing efficiency to reduce annual operational costs from $1.2M to $600K.",
+      "Collaborate multi-functionally with product owners and Agile/Scrum teams to gather requirements and deliver robust, scalable solutions."
     ]
   },
   {
-    role: "Computer Science Tutor",
-    company: "University of Texas at San Antonio",
-    dates: "Jan 2025 - May 2025",
+    role: "Software Engineering Intern",
+    company: "USAA",
+    dates: "May 2025 – Aug 2025",
     bullets: [
-      "Tutored 100+ students in Java, Python, C, data structures, algorithms, and OOP.",
-      "Mentored students on debugging, interview prep, and software engineering fundamentals."
+      "Engineered a full-stack dashboard (Spring Boot, React, REST APIs) to monitor CI/CD test results and downstream health, improving release visibility for 20+ projects.",
+      "Automated real-time pipeline tracking, cutting manual analysis time and boosting debugging efficiency for 12 developers across multiple Agile squads.",
+      "Resolved deployment failures across GitLab CI/CD and Kubernetes, ensuring stable and scalable release workflows.",
+      "Built secure backend APIs with service account integration, wrote unit tests (JUnit, Mockito) achieving 90%+ coverage, and validated endpoints with Postman."
     ]
   }
 ]
 
 export const projects = [
   {
-    title: "Retrieval-Augmented Generation (RAG) System",
-    dates: "Dec 2025 - Current",
-    stack: ["LangChain", "FAISS", "OpenAI", "PostgreSQL", "pgvector"],
-    links: [{ label: "GitHub", href: "https://github.com/arshdeep-sandhu-dev" }],
-    summary: "Production-style RAG that enables semantic search over user-uploaded PDFs with multi-stage retrieval and re-ranking.",
+    title: "TandoorPalaceRestaurant.com",
+    dates: "Mar 2026 – Apr 2026",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Clover", "Vercel"],
+    siteUrl: "https://tandoorpalacerestaurant.com",
+    links: [{ label: "Site", href: "https://tandoorpalacerestaurant.com" }],
+    summary: "Production web application serving 3,000+ monthly users with responsive UI design and integrated payment/catering systems.",
     bullets: [
-      "Built ingestion pipeline: chunking → embeddings → storage (FAISS + pgvector).",
-      "Designed multi-stage retrieval with re-ranking/context filtering to improve relevance and reduce hallucinations.",
-      "Unified OpenAI + Ollama model access behind a single inference interface.",
-      "Optimized retrieval latency with batching and caching."
-    ]
-  },
-  {
-    title: "CI/CD Downstream Health Dashboard",
-    dates: "May 2025 - Aug 2025",
-    stack: ["Spring Boot", "React", "GitLab API", "Kubernetes"],
-    links: [],
-    summary: "Internal dashboard to monitor pipeline results and downstream health across many services.",
-    bullets: [
-      "Aggregated downstream pipeline statuses to improve release visibility and debugging speed.",
-      "Hardened deployments and improved reliability across CI/CD + Kubernetes."
-    ]
-  },
-  {
-    title: "Senior Design – YOLOv5-Based Vision System",
-    dates: "Aug 2025 - Dec 2025",
-    stack: ["Python", "PyTorch", "YOLOv5"],
-    links: [{ label: "GitHub", href: "https://github.com/AnushaAbdulla/seniorDesign" }],
-    summary: "Object-detection pipeline for a real sponsor, focusing on backbone/neck architecture design for accuracy + speed.",
-    bullets: [
-      "Led development of backbone + neck (CSPDarkNet-inspired extraction, PANet/FPN fusion).",
-      "Applied best practices in CNN design and training optimization to balance accuracy and inference speed."
+      "Designed and deployed a production web application using Next.js, TypeScript, and Tailwind CSS with responsive UI across all devices.",
+      "Built 12 modular React components with a typed data layer powering 100+ menu items across 12 categories.",
+      "Reduced monthly platform costs 7.5x by migrating payment systems and added a catering inquiry flow generating an estimated $10,000/month in new revenue."
     ]
   },
   {
     title: "OSRSRecipes.com",
-    dates: "Sep 2025 - Oct 2025",
-    stack: ["Java", "Spring Boot", "React", "AWS", "Firebase", "MySQL"],
-    links: [{ label: "Site", href: "https://osrsrecipes.com" },{ label: "GitHub", href: "https://github.com/arshdeep-sandhu-dev/OSRS" }],
-    summary: "Full-stack web application with cloud deployment and serverless request processing.",
+    dates: "Sep 2025 – Oct 2025",
+    stack: ["Java", "Spring Boot", "React", "AWS", "MySQL"],
+    siteUrl: "https://osrsrecipes.com",
+    links: [{ label: "Site", href: "https://osrsrecipes.com" }, { label: "GitHub", href: "https://github.com/arshdeep-sandhu-dev/OSRS" }],
+    summary: "Full-stack web application delivering real-time market data for 10,000+ items via RESTful APIs with cloud deployment.",
     bullets: [
-      "Built Spring Boot backend + React frontend.",
-      "Implemented AWS Lambda + API Gateway for processing user requests.",
-      "Deployed scalable architecture leveraging AWS RDS and CloudFront."
+      "Developed a full-stack web application with a Java/Spring Boot backend and React frontend, delivering real-time market data for 10,000+ items via RESTful APIs.",
+      "Implemented AWS Lambda functions and API Gateway to process user requests with scalable, serverless architecture.",
+      "Deployed infrastructure leveraging AWS RDS (MySQL) and CloudFront for low-latency global content delivery."
+    ]
+  },
+  {
+    title: "Senior Design – American Tenant ML Vision System",
+    dates: "Aug 2025 – Dec 2025",
+    stack: ["Python", "PyTorch", "YOLO"],
+    videoUrl: "https://www.youtube.com/embed/5BrvMlDfVB8",
+    links: [{ label: "GitHub", href: "https://github.com/AnushaAbdulla/seniorDesign" }],
+    summary: "YOLOv5-based object detection pipeline for real-time property inspection analysis, built for an industry sponsor.",
+    bullets: [
+      "Designed and implemented a YOLOv5-based object detection pipeline using Python and PyTorch for real-time property inspection analysis.",
+      "Led development of the backbone architecture (convolutional layers, CSPDarkNet feature extraction, PANet/FPN fusion), applying best practices in model optimization for accuracy and scalability."
     ]
   },
   {
     title: "LetterBoxed Movie Chooser",
-    dates: "Jan 2025 - May 2025",
+    dates: "Jan 2025 – May 2025",
     stack: ["Python", "Flask", "React", "SQL", "Firebase"],
     links: [{ label: "GitHub", href: "https://github.com/arshdeep-sandhu-dev/LetterBoxd_website" }],
-    summary: "Fetches a user's wishlist from a movie API and helps pick a movie fast with secure auth and a clean UI.",
+    summary: "Web app that fetches a user's movie wishlist and helps pick a movie with secure auth and a clean UI.",
     bullets: [
       "Integrated a movie API + database, with dynamic frontend/backend flows.",
       "Firebase Authentication (email/password + OAuth)."
     ]
   },
   {
-    title: "Movie Reccommendation System",
-    dates: "Aug 2024 - Nov 2024",
-    stack: ["Python", "C", "Cuda", "FAISS"],
+    title: "Movie Recommendation System",
+    dates: "Aug 2024 – Nov 2024",
+    stack: ["Python", "C", "CUDA", "FAISS"],
     links: [{ label: "GitHub", href: "https://github.com/arshdeep-sandhu-dev/Movie-Reccomendation" }],
-    summary: "Movie Reccomendation System using Collaborative Filtering and Content-Based Filtering and large neural networks for embeddings. Using FAISS for fast similarity search.",
+    summary: "GPU-accelerated movie recommendation system on 32M ratings from 200K+ users using collaborative filtering and deep learning.",
     bullets: [
-      "Built a GPU-accelerated movie recommendation system on 32 million ratings from 200,000+ users using PyCUDA, FAISS-GPU, and multi-GPU DNNs",
-      "Implemented custom matrix factorization with sparse matrix representation and CUDA kernels for parallel SGD optimization",
-      "Deployed FAISS-GPU for scalable KNN retrieval and trained deep collaborative filtering models with custom forward/backprop on multi-GPU",
-      "Achieved fast convergence and high accuracy while benchmarking RMSE and GPU utilization across all models"
+      "Built a GPU-accelerated recommendation system using PyCUDA, FAISS-GPU, and multi-GPU DNNs on 32 million ratings.",
+      "Implemented custom matrix factorization with sparse matrix representation and CUDA kernels for parallel SGD optimization.",
+      "Deployed FAISS-GPU for scalable KNN retrieval and trained deep collaborative filtering models with custom forward/backprop."
     ]
   }
 ]

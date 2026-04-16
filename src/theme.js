@@ -3,42 +3,59 @@ import { createTheme } from '@mui/material/styles'
 export const theme = createTheme({
   palette: {
     mode: 'dark',
-    primary: { main: '#38BDF8' },   // sky
-    secondary: { main: '#22C55E' }, // emerald
+    primary: { main: '#3b82f6' },
+    secondary: { main: '#64748b' },
     background: {
-      default: '#0B1020',
-      paper: 'rgba(255,255,255,0.07)'
+      default: '#09090b',
+      paper: 'rgba(23, 23, 26, 0.7)'
+    },
+    text: {
+      primary: '#fafafa',
+      secondary: 'rgba(250, 250, 250, 0.6)'
     }
   },
-  shape: { borderRadius: 16 },
+  shape: { borderRadius: 12 },
   typography: {
-    fontFamily: [
-      'ui-sans-serif',
-      'system-ui',
-      '-apple-system',
-      'Segoe UI',
-      'Roboto',
-      'Helvetica',
-      'Arial',
-      'Apple Color Emoji',
-      'Segoe UI Emoji'
-    ].join(','),
-    h1: { fontSize: '2.6rem', fontWeight: 800, letterSpacing: -0.5 },
-    h2: { fontSize: '1.8rem', fontWeight: 800, letterSpacing: -0.3 },
-    h3: { fontSize: '1.35rem', fontWeight: 700 },
-    body1: { lineHeight: 1.7 }
+    fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
+    h1: { fontSize: '3rem', fontWeight: 700, letterSpacing: '-0.03em', lineHeight: 1.1 },
+    h2: { fontSize: '1.85rem', fontWeight: 700, letterSpacing: '-0.02em' },
+    h3: { fontSize: '1.3rem', fontWeight: 600 },
+    body1: { lineHeight: 1.7, fontSize: '0.95rem' },
+    body2: { lineHeight: 1.6 }
   },
   components: {
     MuiPaper: {
       styleOverrides: {
         root: {
-          backdropFilter: 'blur(10px)',
-          border: '1px solid rgba(255,255,255,0.10)'
+          backgroundImage: 'none',
+          border: '1px solid rgba(255,255,255,0.06)',
+          transition: 'border-color 0.25s ease'
         }
       }
     },
     MuiButton: {
-      defaultProps: { disableElevation: true }
+      defaultProps: { disableElevation: true },
+      styleOverrides: {
+        root: {
+          borderRadius: 8,
+          textTransform: 'none',
+          fontWeight: 600,
+          fontSize: '0.875rem'
+        }
+      }
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: 6,
+          fontWeight: 500,
+          fontSize: '0.8rem',
+          height: 28
+        },
+        outlined: {
+          borderColor: 'rgba(255,255,255,0.1)'
+        }
+      }
     }
   }
 })
