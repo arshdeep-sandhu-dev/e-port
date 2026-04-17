@@ -1,6 +1,14 @@
 import React from 'react'
 import { Box, Container, Link, Stack, Typography } from '@mui/material'
+import { NavLink } from 'react-router-dom'
 import { profile } from '../data/profile'
+
+const linkStyle = {
+  color: 'text.secondary',
+  fontSize: '0.85rem',
+  textDecoration: 'none',
+  '&:hover': { color: 'text.primary' }
+}
 
 export default function Footer() {
   return (
@@ -16,13 +24,16 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} {profile.name}
           </Typography>
           <Stack direction="row" spacing={3}>
-            <Link href={profile.linkedin} target="_blank" rel="noreferrer" sx={{ color: 'text.secondary', fontSize: '0.85rem', textDecoration: 'none', '&:hover': { color: 'text.primary' } }}>
+            <Link component={NavLink} to="/now" sx={linkStyle}>
+              Now
+            </Link>
+            <Link href={profile.linkedin} target="_blank" rel="noreferrer" sx={linkStyle}>
               LinkedIn
             </Link>
-            <Link href={profile.github} target="_blank" rel="noreferrer" sx={{ color: 'text.secondary', fontSize: '0.85rem', textDecoration: 'none', '&:hover': { color: 'text.primary' } }}>
+            <Link href={profile.github} target="_blank" rel="noreferrer" sx={linkStyle}>
               GitHub
             </Link>
-            <Link href={`mailto:${profile.email}`} sx={{ color: 'text.secondary', fontSize: '0.85rem', textDecoration: 'none', '&:hover': { color: 'text.primary' } }}>
+            <Link href={`mailto:${profile.email}`} sx={linkStyle}>
               {profile.email}
             </Link>
           </Stack>

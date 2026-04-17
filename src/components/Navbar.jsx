@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import {
   AppBar, Box, Button, Container, Drawer, IconButton,
   List, ListItem, ListItemButton, ListItemText, Toolbar, Typography
@@ -6,6 +6,8 @@ import {
 import { NavLink, useLocation } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseIcon from '@mui/icons-material/Close'
+
+const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad|iPod/.test(navigator.platform)
 
 const pages = [
   { label: 'Home', path: '/' },
@@ -67,6 +69,29 @@ export default function Navbar() {
                   {p.label}
                 </Button>
               ))}
+            </Box>
+
+            <Box
+              aria-hidden
+              sx={{
+                display: { xs: 'none', md: 'flex' },
+                alignItems: 'center',
+                gap: 0.5,
+                px: 1.25,
+                py: 0.5,
+                mr: 1,
+                borderRadius: 1,
+                border: '1px solid rgba(255,255,255,0.08)',
+                backgroundColor: 'rgba(255,255,255,0.02)',
+                fontSize: '0.72rem',
+                color: 'text.secondary',
+                fontFamily: 'monospace',
+                letterSpacing: '0.02em',
+                pointerEvents: 'none'
+              }}
+            >
+              <Box component="span" sx={{ fontSize: '0.8rem' }}>{isMac ? '⌘' : 'Ctrl'}</Box>
+              <Box component="span">K</Box>
             </Box>
 
             <Box sx={{ display: { xs: 'flex', md: 'none' }, ml: 'auto' }}>

@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
-import { Box, Container, Grid, Paper, Stack, Typography, Chip, IconButton } from '@mui/material'
+import { Box, Button, Container, Grid, Link as MuiLink, Paper, Stack, Typography, Chip, IconButton } from '@mui/material'
 import SectionHeader from '../components/SectionHeader'
 import { profile, skills } from '../data/profile'
 import { FadeUp } from '../components/Motion'
 import SchoolIcon from '@mui/icons-material/School'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import GitHubIcon from '@mui/icons-material/GitHub'
+import OpenInNewIcon from '@mui/icons-material/OpenInNew'
+
+const GH_USER = 'arshdeep-sandhu-dev'
+const GH_THEME = 'tokyonight'
 
 const photos = [
   { src: '/usaaNotebook.jpeg', caption: 'I interned at USAA and started full time in January 2026.' },
@@ -92,6 +97,72 @@ export default function About() {
           </FadeUp>
         </Grid>
       </Grid>
+
+      {/* GitHub Activity */}
+      <FadeUp delay={0.1}>
+        <Paper sx={{ mt: 4, p: 3.5, '&:hover': { borderColor: 'rgba(255,255,255,0.12)' } }}>
+          <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: 2.5, flexWrap: 'wrap', gap: 1 }}>
+            <Stack direction="row" spacing={1.5} alignItems="center">
+              <GitHubIcon sx={{ fontSize: 22, color: 'text.primary' }} />
+              <Typography sx={{ fontWeight: 700 }}>GitHub activity</Typography>
+            </Stack>
+            <Button
+              component={MuiLink}
+              href={profile.github}
+              target="_blank"
+              rel="noreferrer"
+              size="small"
+              endIcon={<OpenInNewIcon sx={{ fontSize: 14 }} />}
+              sx={{
+                color: 'text.secondary',
+                fontSize: '0.8rem',
+                '&:hover': { color: 'text.primary', backgroundColor: 'transparent' }
+              }}
+            >
+              @{GH_USER}
+            </Button>
+          </Stack>
+
+          <Box
+            sx={{
+              p: 2,
+              borderRadius: 2,
+              backgroundColor: 'rgba(0,0,0,0.2)',
+              border: '1px solid rgba(255,255,255,0.04)',
+              overflow: 'hidden'
+            }}
+          >
+            <Box
+              component="img"
+              src={`https://ghchart.rshah.org/3b82f6/${GH_USER}`}
+              alt={`${GH_USER} GitHub contribution graph`}
+              loading="lazy"
+              sx={{ width: '100%', height: 'auto', display: 'block' }}
+            />
+          </Box>
+
+          <Grid container spacing={2} sx={{ mt: 0.5 }}>
+            <Grid item xs={12} md={7}>
+              <Box
+                component="img"
+                src={`https://github-readme-stats.vercel.app/api?username=${GH_USER}&show_icons=true&hide_border=true&theme=${GH_THEME}&bg_color=00000000&title_color=3b82f6&text_color=a1a1aa&icon_color=3b82f6`}
+                alt={`${GH_USER} GitHub stats`}
+                loading="lazy"
+                sx={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </Grid>
+            <Grid item xs={12} md={5}>
+              <Box
+                component="img"
+                src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${GH_USER}&layout=compact&hide_border=true&theme=${GH_THEME}&bg_color=00000000&title_color=3b82f6&text_color=a1a1aa`}
+                alt={`${GH_USER} top languages`}
+                loading="lazy"
+                sx={{ width: '100%', height: 'auto', display: 'block' }}
+              />
+            </Grid>
+          </Grid>
+        </Paper>
+      </FadeUp>
 
       {/* Photo Gallery */}
       <FadeUp delay={0.12}>

@@ -1,10 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#38BDF8"/>
-      <stop offset="1" stop-color="#22C55E"/>
-    </linearGradient>
-  </defs>
-  <rect width="64" height="64" rx="14" fill="url(#g)"/>
-  <path d="M18 44l10-24h8l10 24h-7l-2-5H27l-2 5h-7zm12-10h10l-5-12-5 12z" fill="#fff"/>
+  <rect width="64" height="64" rx="14" fill="#09090b"/>
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#3b82f6" stroke-width="2"/>
+  <text x="32" y="42" text-anchor="middle" font-family="Inter, system-ui, -apple-system, sans-serif" font-size="26" font-weight="700" letter-spacing="-1" fill="#fafafa">AS</text>
 </svg>

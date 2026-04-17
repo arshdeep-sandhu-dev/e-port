@@ -23,6 +23,13 @@ export const highlights = [
   { title: "Ship & Scale", body: "Database migrations, batch processing, RESTful APIs — production systems that save real money." }
 ]
 
+export const stats = [
+  { value: "13M+", label: "Members served at USAA" },
+  { value: "$600K", label: "Annual ops cost reduction" },
+  { value: "90%+", label: "Test coverage on backend services" },
+  { value: "32M", label: "Ratings processed on GPU pipeline" }
+]
+
 export const skills = {
   Languages: ["Java", "Python", "C", "JavaScript", "SQL", "HTML/CSS"],
   "Frameworks & Libraries": ["Spring Boot", "Spring Batch", "React", "Node.js", "Flask", "JUnit", "Mockito", "Material-UI", "PyTorch"],
@@ -35,6 +42,7 @@ export const experience = [
     role: "Software Engineer",
     company: "USAA",
     dates: "Jan 2026 – Present",
+    caseStudy: { label: "Read case study: DB2 → Oracle migration", path: "/case-study/usaa" },
     bullets: [
       "Develop and maintain scalable enterprise financial systems serving 13M+ members, designing backend services with Java and Spring Boot for high-throughput transaction processing.",
       "Build batch processing systems using Spring Batch to aggregate and summarize enterprise-wide loss data, integrating across distributed systems for General Ledger reporting.",

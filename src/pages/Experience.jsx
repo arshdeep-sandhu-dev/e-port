@@ -1,5 +1,7 @@
 import React from 'react'
-import { Box, Container, Paper, Typography } from '@mui/material'
+import { Box, Button, Container, Paper, Typography } from '@mui/material'
+import { NavLink } from 'react-router-dom'
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import SectionHeader from '../components/SectionHeader'
 import { experience } from '../data/profile'
 import { FadeUp } from '../components/Motion'
@@ -50,6 +52,24 @@ export default function Experience() {
                   </li>
                 ))}
               </Box>
+              {e.caseStudy && (
+                <Button
+                  component={NavLink}
+                  to={e.caseStudy.path}
+                  size="small"
+                  endIcon={<ArrowForwardIcon sx={{ fontSize: 14 }} />}
+                  sx={{
+                    mt: 2,
+                    ml: -1,
+                    color: 'primary.main',
+                    fontWeight: 600,
+                    fontSize: '0.8rem',
+                    '&:hover': { backgroundColor: 'rgba(59,130,246,0.08)' }
+                  }}
+                >
+                  {e.caseStudy.label}
+                </Button>
+              )}
             </Paper>
           </FadeUp>
         ))}
