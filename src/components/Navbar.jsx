@@ -16,6 +16,7 @@ const pages = [
   { label: 'Experience', path: '/experience' },
   { label: 'Resume', path: '/resume' },
   { label: 'Research Papers', path: '/paper' },
+  { label: 'Build Deep', path: '/builddeep' },
   { label: 'Contact', path: '/contact' },
 ]
 

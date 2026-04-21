@@ -15,6 +15,7 @@ import Contact from './pages/Contact'
 import PaperPage from './pages/Paper'
 import Now from './pages/Now'
 import CaseStudyUSAA from './pages/CaseStudyUSAA'
+import BuildDeep from './pages/BuildDeep'
 
 function PageTransition({ children }) {
   const prefersReducedMotion = useReducedMotion()
@@ -44,6 +45,7 @@ function AnimatedRoutes() {
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
         <Route path="/now" element={<PageTransition><Now /></PageTransition>} />
         <Route path="/case-study/usaa" element={<PageTransition><CaseStudyUSAA /></PageTransition>} />
+        <Route path="/builddeep" element={<PageTransition><BuildDeep /></PageTransition>} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </AnimatePresence>

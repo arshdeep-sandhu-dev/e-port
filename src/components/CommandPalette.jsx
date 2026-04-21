@@ -17,6 +17,7 @@ import DownloadIcon from '@mui/icons-material/Download'
 import SearchIcon from '@mui/icons-material/Search'
 import BoltIcon from '@mui/icons-material/Bolt'
 import AutoStoriesIcon from '@mui/icons-material/AutoStories'
+import LanguageIcon from '@mui/icons-material/Language'
 import { profile } from '../data/profile'
 
 const isMac = typeof navigator !== 'undefined' && /Mac|iPhone|iPad|iPod/.test(navigator.platform)
@@ -39,6 +40,7 @@ export default function CommandPalette() {
     { id: 'contact', label: 'Contact', group: 'Navigate', icon: <MailIcon fontSize="small" />, action: () => navigate('/contact') },
     { id: 'now', label: "Now — what I'm working on", group: 'Navigate', icon: <BoltIcon fontSize="small" />, action: () => navigate('/now') },
     { id: 'case-study', label: 'Case study: DB2 → Oracle migration', group: 'Navigate', icon: <AutoStoriesIcon fontSize="small" />, action: () => navigate('/case-study/usaa') },
+    { id: 'builddeep', label: 'Build Deep — website services', group: 'Navigate', icon: <LanguageIcon fontSize="small" />, action: () => navigate('/builddeep') },
     { id: 'download-resume', label: 'Download Resume (PDF)', group: 'Actions', icon: <DownloadIcon fontSize="small" />, action: () => { window.open('/resume.pdf', '_blank') } },
     { id: 'email', label: `Email ${profile.email}`, group: 'Actions', icon: <MailIcon fontSize="small" />, action: () => { window.location.href = `mailto:${profile.email}` } },
     { id: 'github', label: 'Open GitHub', group: 'External', icon: <GitHubIcon fontSize="small" />, action: () => { window.open(profile.github, '_blank', 'noopener,noreferrer') } },
